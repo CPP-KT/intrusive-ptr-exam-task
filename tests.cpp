@@ -102,6 +102,15 @@ static_assert(
     std::is_assignable_v<intrusive_ptr<object>, intrusive_ptr<derived>&&>);
 
 static_assert(
+    !std::is_constructible_v<intrusive_ptr<derived>, const intrusive_ptr<object>&>);
+static_assert(
+    !std::is_constructible_v<intrusive_ptr<derived>, intrusive_ptr<object>&&>);
+static_assert(
+    !std::is_assignable_v<intrusive_ptr<derived>, const intrusive_ptr<object>&>);
+static_assert(
+    !std::is_assignable_v<intrusive_ptr<derived>, intrusive_ptr<object>&&>);
+
+static_assert(
     !std::is_constructible_v<intrusive_ptr<object>, const intrusive_ptr<int>&>);
 static_assert(
     !std::is_constructible_v<intrusive_ptr<object>, intrusive_ptr<int>&&>);
