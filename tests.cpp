@@ -24,11 +24,12 @@ TEST(correctness, ref_counter_copy_ctor) {
 TEST(correctness, ref_counter_assignment) {
   auto a = new object();
   intrusive_ptr<object> ptr1(a);
-  ASSERT_EQ(a->use_count(), 1);
+  intrusive_ptr<object> ptr2(a);
+  ASSERT_EQ(a->use_count(), 2);
 
   object b;
   *a = b;
-  ASSERT_EQ(a->use_count(), 1);
+  ASSERT_EQ(a->use_count(), 2);
 }
 
 TEST(correctness, default_ptr_ctor) {
