@@ -93,7 +93,7 @@ TEST(correctness, thread_safety_check) {
   for (size_t i = 0; i < N; ++i) {
     workers.emplace_back([o, N_ctors]() {
       for (size_t j = 0; j < N_ctors; j++) {
-        intrusive_ptr<object> ptr(o);
+        intrusive_ptr<object> ptr_copy(o);
       }
     });
   }
