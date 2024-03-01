@@ -5,9 +5,9 @@ struct intrusive_ptr {
   intrusive_ptr() noexcept;
   intrusive_ptr(T* p, bool add_ref = true);
 
-  intrusive_ptr(intrusive_ptr const& r);
+  intrusive_ptr(const intrusive_ptr& r);
   template <class Y>
-  intrusive_ptr(intrusive_ptr<Y> const& r);
+  intrusive_ptr(const intrusive_ptr<Y>& r);
 
   intrusive_ptr(intrusive_ptr&& r);
   template <class Y>
@@ -15,9 +15,9 @@ struct intrusive_ptr {
 
   ~intrusive_ptr();
 
-  intrusive_ptr& operator=(intrusive_ptr const& r);
+  intrusive_ptr& operator=(const intrusive_ptr& r);
   template <class Y>
-  intrusive_ptr& operator=(intrusive_ptr<Y> const& r);
+  intrusive_ptr& operator=(const intrusive_ptr<Y>& r);
   intrusive_ptr& operator=(T* r);
 
   intrusive_ptr& operator=(intrusive_ptr&& r);
@@ -39,25 +39,25 @@ struct intrusive_ptr {
 };
 
 template <class T, class U>
-bool operator==(intrusive_ptr<T> const& a, intrusive_ptr<U> const& b) noexcept;
+bool operator==(const intrusive_ptr<T>& a, const intrusive_ptr<U>& b) noexcept;
 
 template <class T, class U>
-bool operator!=(intrusive_ptr<T> const& a, intrusive_ptr<U> const& b) noexcept;
+bool operator!=(const intrusive_ptr<T>& a, const intrusive_ptr<U>& b) noexcept;
 
 template <class T, class U>
-bool operator==(intrusive_ptr<T> const& a, U* b) noexcept;
+bool operator==(const intrusive_ptr<T>& a, U* b) noexcept;
 
 template <class T, class U>
-bool operator!=(intrusive_ptr<T> const& a, U* b) noexcept;
+bool operator!=(const intrusive_ptr<T>& a, U* b) noexcept;
 
 template <class T, class U>
-bool operator==(T* a, intrusive_ptr<U> const& b) noexcept;
+bool operator==(T* a, const intrusive_ptr<U>& b) noexcept;
 
 template <class T, class U>
-bool operator!=(T* a, intrusive_ptr<U> const& b) noexcept;
+bool operator!=(T* a, const intrusive_ptr<U>& b) noexcept;
 
 template <class T>
-bool operator<(intrusive_ptr<T> const& a, intrusive_ptr<T> const& b) noexcept;
+bool operator<(const intrusive_ptr<T>& a, const intrusive_ptr<T>& b) noexcept;
 
 template <class T>
 void swap(intrusive_ptr<T>& a, intrusive_ptr<T>& b) noexcept;
