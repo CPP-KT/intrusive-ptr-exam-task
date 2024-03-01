@@ -5,8 +5,9 @@ set(CMAKE_CXX_STANDARD 20)
 
 find_package(GTest REQUIRED)
 
+file(GLOB SRC src/*.cpp src/*.h)
 file(GLOB TEST_SRC test/*.cpp)
-add_executable(tests ${TEST_SRC})
+add_executable(tests ${SRC} ${TEST_SRC})
 
 target_include_directories(tests PRIVATE src test)
 
