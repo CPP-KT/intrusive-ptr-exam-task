@@ -45,6 +45,13 @@ if(USE_SANITIZERS)
   target_link_options(tests PUBLIC -fsanitize=address,undefined,leak)
 endif()
 
+option(USE_SANITIZERS "Enable to build with undefined,leak and address sanitizers" OFF)
+if(USE_THREAD_SANITIZER)
+  message(STATUS "Enabling thread sanitizer...")
+  target_compile_options(tests PUBLIC -fsanitize=thread -fno-sanitize-recover=all)
+  target_link_options(tests PUBLIC -fsanitize=thread)
+endif()
+
 if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   message(STATUS "Enabling libc++...")
   target_compile_options(tests PUBLIC -stdlib=libc++)

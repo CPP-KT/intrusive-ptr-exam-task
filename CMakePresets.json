@@ -35,6 +35,16 @@
       "binaryDir": "cmake-build-SanitizedDebug"
     },
     {
+      "name": "ThreadSanitizedDebug",
+      "displayName": "ThreadSanitizedDebug",
+      "description": "Debug build with thread sanitizer enabled",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "USE_THREAD_SANITIZER": "ON"
+      },
+      "binaryDir": "cmake-build-ThreadSanitizedDebug"
+    },
+    {
       "name": "RelWithDebInfo",
       "displayName": "RelWithDebInfo",
       "description": "Release with debug info",

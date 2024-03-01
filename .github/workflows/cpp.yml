@@ -30,7 +30,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        build_type: [Release, Debug, SanitizedDebug, RelWithDebInfo]
+        build_type: [Release, Debug, SanitizedDebug, ThreadSanitizedDebug, RelWithDebInfo]
         compiler: ['gcc:13', 'clang:17']
 
     runs-on: ubuntu-latest
