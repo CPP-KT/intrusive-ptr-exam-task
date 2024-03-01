@@ -1,3 +1,5 @@
+#pragma once
+
 template <typename T>
 struct intrusive_ptr {
   using element_type = T;
